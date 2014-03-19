@@ -1,0 +1,367 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Veuse Staff\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-16 00:04+0100\n"
+"PO-Revision-Date: 2013-12-16 00:05+0100\n"
+"Last-Translator: Andreas Wilthil <andreas@siteman.no>\n"
+"Language-Team: Veuse <andreas.wilthil@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Bookmarks: 1,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../loop-staff.php:106 ../veuse-staff.php:495
+msgid "Phone:"
+msgstr "Telefon:"
+
+#: ../loop-staff.php:107 ../veuse-staff.php:496
+msgid "Mobile:"
+msgstr "Mobil:"
+
+#: ../loop-staff.php:108 ../veuse-staff.php:497
+msgid "Email:"
+msgstr "E-post"
+
+#: ../loop-staff.php:112 ../post-meta.php:113
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../loop-staff.php:113
+msgid "LinkedIn"
+msgstr "linkedIn"
+
+#: ../loop-staff.php:114 ../post-meta.php:107
+msgid "Twitter"
+msgstr "twitter"
+
+#: ../loop-staff.php:119
+msgid "Get to know"
+msgstr "Les mer om"
+
+#: ../options.php:86
+msgid "Usage"
+msgstr "Brukerveiledning"
+
+#: ../options.php:121
+msgid "Usage and settings"
+msgstr "Brukerveiledning og innstillinger"
+
+#: ../options.php:122
+msgid "Instructions on how to display your teams."
+msgstr "Instruksjoner på hvordan du setter opp dine team."
+
+#: ../options.php:150
+msgid "Shortcode"
+msgstr ""
+
+#: ../options.php:160
+msgid "Parameters"
+msgstr "Parametere"
+
+#: ../options.php:207
+msgid "Enable plugin stylesheet"
+msgstr "Bruk innstikkets stilark"
+
+#: ../options.php:214
+msgid "Portrait settings"
+msgstr "Portrettinnstillinger"
+
+#: ../options.php:217
+msgid "Portrait"
+msgstr "Portrett"
+
+#: ../options.php:218
+msgid "Landscape"
+msgstr "Landskap"
+
+#: ../options.php:219
+msgid "Square"
+msgstr "Kvadratisk"
+
+#: ../options.php:221
+msgid "Select the aspect ratio of portrait images."
+msgstr "Velg bildeformat"
+
+#: ../options.php:228
+msgid "Save Changes"
+msgstr "Lagre endringer"
+
+#: ../options.php:238
+msgid "Advanced"
+msgstr "Avansert"
+
+#: ../options.php:277
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: ../post-meta.php:10 ../veuse-staff.php:80
+msgid "Staff Member"
+msgstr "Ansatt"
+
+#: ../post-meta.php:48
+msgid "Name of staff member"
+msgstr "Navn på ansatt"
+
+#: ../post-meta.php:50
+msgid "Designation"
+msgstr "Stilling"
+
+#: ../post-meta.php:53
+msgid "Short Biography"
+msgstr "Kort biografi"
+
+#: ../post-meta.php:55
+msgid "Enter a short bio, like an excerpt. Can be displayed in team-listings"
+msgstr "Skriv inn en kort biografi. Kan vises i ansatt-opplistinger"
+
+#: ../post-meta.php:72
+msgid "Add portrait"
+msgstr "Legg til portrettbilde"
+
+#: ../post-meta.php:73
+msgid "Remove portrait"
+msgstr "Fjern portrettbilde"
+
+#: ../post-meta.php:81
+msgid "Contact Info"
+msgstr "Kontaktinfo"
+
+#: ../post-meta.php:85
+msgid "Email"
+msgstr "E-post:"
+
+#: ../post-meta.php:91
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+#: ../post-meta.php:97
+msgid "Mobile number"
+msgstr "Mobilnummer"
+
+#: ../post-meta.php:103
+msgid "Social Media"
+msgstr "Sosiale Medier"
+
+#: ../post-meta.php:109
+msgid "Enter url to staff-members twitter profile page"
+msgstr "Skriv inn URL til den ansattes twitter-profil"
+
+#: ../post-meta.php:115
+msgid "Enter url to staff-members facebook profile page"
+msgstr "Skriv inn URL til den ansattes facebook-profil"
+
+#: ../post-meta.php:119
+msgid "Linkedin"
+msgstr "linkedIn"
+
+#: ../post-meta.php:121
+msgid "Enter url to staff-members linkedIn profile page"
+msgstr "Skriv inn URL til den ansattes linkedIn-profil"
+
+#: ../post-meta.php:125
+msgid "Full Biography"
+msgstr "Full biografi"
+
+#: ../veuse-staff.php:15
+msgid "Veuse Staff"
+msgstr "Veuse Ansatte"
+
+#: ../veuse-staff.php:79
+msgid "Staff"
+msgstr "Ansatte"
+
+#: ../veuse-staff.php:81 ../veuse-staff.php:82 ../veuse-staff.php:85
+msgid "New Staff Member"
+msgstr "Ny Ansatt"
+
+#: ../veuse-staff.php:83
+msgid "Edit Staff Member"
+msgstr "Endre Ansatt"
+
+#: ../veuse-staff.php:84
+msgid "All Staff Members"
+msgstr "Alle Ansatte"
+
+#: ../veuse-staff.php:86
+msgid "View Staff Member"
+msgstr "Se Ansatt"
+
+#: ../veuse-staff.php:87
+msgid "Search Staff Members"
+msgstr "Søk i Ansatte"
+
+#: ../veuse-staff.php:88
+msgid "No Staff Members"
+msgstr "Ingen Ansatte"
+
+#: ../veuse-staff.php:89
+msgid "No Staff Members found in Trash"
+msgstr "Ingen Ansatte Funnet i Papirkurven"
+
+#: ../veuse-staff.php:112
+msgid "Teams"
+msgstr "Team"
+
+#: ../veuse-staff.php:113 ../veuse-staff.php:191
+msgid "Team"
+msgstr "Team"
+
+#: ../veuse-staff.php:114 ../veuse-staff.php:115
+msgid "Add New Team"
+msgstr "Legg til nytt team"
+
+#: ../veuse-staff.php:116
+msgid "Edit Team"
+msgstr "Endre Team"
+
+#: ../veuse-staff.php:117
+msgid "All Teams"
+msgstr "Alle Team"
+
+#: ../veuse-staff.php:118
+msgid "New Team"
+msgstr "Nytt Team"
+
+#: ../veuse-staff.php:119
+msgid "View Team"
+msgstr "Se Team"
+
+#: ../veuse-staff.php:120
+msgid "Search Teams"
+msgstr "Søk i Team"
+
+#: ../veuse-staff.php:121
+msgid "No Teams found"
+msgstr "Ingen Team Funnet"
+
+#: ../veuse-staff.php:188
+msgid "Staff Member Name"
+msgstr "Ansatt navn"
+
+#: ../veuse-staff.php:189
+msgid "Photo"
+msgstr "Foto"
+
+#: ../veuse-staff.php:190
+#, fuzzy
+msgid "Short bio"
+msgstr "Kort biografi"
+
+#: ../veuse-staff.php:323
+msgid "Staff Member order"
+msgstr "Ansatt Rekkefølge"
+
+#: ../veuse-staff.php:327
+msgid ""
+"Change the staff members order of appearance in staff-lists. Negative values "
+"are supported."
+msgstr "Endre den ansattes posisjon i lister. Støtter også negative verdier."
+
+#: ../veuse-staff.php:493
+msgid "Contact info"
+msgstr "Kontaktinfo"
+
+#: ../veuse-staff.php:502
+msgid "Social media"
+msgstr "Sosiale medier"
+
+#: ../veuse-staff.php:504
+msgid "Follow on Facebook"
+msgstr "Følg på facebook"
+
+#: ../veuse-staff.php:505
+msgid "Follow on Twitter"
+msgstr "Følg på twitter"
+
+#: ../veuse-staff.php:506
+msgid "Follow on LinkedIn"
+msgstr "Følg på LinkedIn"
+
+#: ../widget.php:11
+msgid "Team Members (Veuse)"
+msgstr "Team medlemmer (Siteman)"
+
+#: ../widget.php:12
+msgid "Add team members to your page"
+msgstr "Legg til en oversikt over ansatte."
+
+#: ../widget.php:60
+msgid "Title:"
+msgstr "Tittel"
+
+#: ../widget.php:64
+msgid "Team:"
+msgstr "Team:"
+
+#: ../widget.php:86
+msgid "Columns:"
+msgstr "Kolonner:"
+
+#: ../widget.php:88
+msgid "1 column"
+msgstr "1 kolonne"
+
+#: ../widget.php:89
+msgid "2 columns"
+msgstr "2 kolonner"
+
+#: ../widget.php:90
+msgid "3 columns"
+msgstr "3 kolonner"
+
+#: ../widget.php:91
+msgid "4 columns"
+msgstr "4 kolonner"
+
+#~ msgid "Staff member biography. This is displayed on single-staff posts."
+#~ msgstr "Ansatt biografi. Dette vises på siden for den ansatte."
+
+#~ msgid "Enter persons twitter-url"
+#~ msgstr "Skriv inn url til den ansattes twitter-profil"
+
+#~ msgid "Enter persons facebook-url"
+#~ msgstr "Skriv inn url til den ansattes facebook-profil"
+
+#~ msgid "Enter persons phone-number"
+#~ msgstr "Skriv inn den ansattes telefonnummer"
+
+#~ msgid ""
+#~ "Select a layout to use in the staff-template and in taxonomy-template."
+#~ msgstr "Velg "
+
+#~ msgid "Add a portrait"
+#~ msgstr "Legg til portrettbilde"
+
+#~ msgid "Staff Member biography"
+#~ msgstr "Ansatt Biografi"
+
+#~ msgid "Staff Member Portrait Photo"
+#~ msgstr "Ansatt Portrettfoto"
+
+#~ msgid "Enter persons email-address"
+#~ msgstr "Skriv inn den ansattes e-post adresse"
+
+#~ msgid "Portfolio"
+#~ msgstr "Porteflølje"
+
+#~ msgid "Project"
+#~ msgstr "Prosjekt"
+
+#~ msgid "Edit Project"
+#~ msgstr "Endre prosjekt"
+
+#~ msgid "All Projects"
+#~ msgstr "Alle prosjekter"
+
+#~ msgid "New Project"
+#~ msgstr "Nytt prosjekt"
+
+#~ msgid "View Project"
+#~ msgstr "Vis prosjekt"
