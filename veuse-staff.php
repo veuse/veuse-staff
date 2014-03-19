@@ -3,7 +3,7 @@
 Plugin Name: Veuse Staff
 Plugin URI: http://veuse.com/veuse-staff
 Description:  Fully localized. Templates included. This is an add-on for the Veuse Pagebuilder plugin.
-Version: 1.0
+Version: 1.1
 Author: Andreas Wilthil
 Author URI: http://veuse.com
 License: GPL3
@@ -580,7 +580,7 @@ if(!function_exists('veuse_retina_interchange_image')){
   *  License: GPLv2
   *  http://www.gnu.org/licenses/gpl-2.0.html
   *
-  *  @author Ernesto MŽndez (http://der-design.com)
+  *  @author Ernesto Mï¿½ndez (http://der-design.com)
   *  @author Matthew Ruddy (http://rivaslider.com)
   */
 
