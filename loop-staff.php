@@ -55,7 +55,7 @@ $i = 0;
 
 ?>
 
-<ul class="small-staff-block-grid-<?php echo $mobile_columns;?> large-staff-block-grid-<?php echo $columns;?>">
+<ul class="small-block-staff-grid-<?php echo $mobile_columns;?> large-block-staff-grid-<?php echo $columns;?>">
 
 <?php
 

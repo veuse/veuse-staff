@@ -32,8 +32,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
 
-__('Veuse Staff', 'veuse-staff' ); /* Dummy call for plugin name translation. */
-
 
 class VeuseStaff {
 
@@ -77,8 +75,8 @@ class VeuseStaff {
 			
 		}
 
-			wp_register_style( 'veuse-staff',  $this->strVeuseStaffURI . 'assets/css/veuse-staff.css', array(), '', 'screen' );
-			wp_enqueue_style ( 'veuse-staff' );
+		wp_register_style( 'veuse-staff',  $this->strVeuseStaffURI . 'assets/css/veuse-staff.css', array(), '', 'screen' );
+		wp_enqueue_style ( 'veuse-staff' );
 	
 
 	}
@@ -373,7 +371,7 @@ $staff = new VeuseStaff;
 require_once(plugin_dir_path(__FILE__). 'widget.php');
 
 /* Plugin options */
-require_once(plugin_dir_path(__FILE__). 'options.php');
+//require_once(plugin_dir_path(__FILE__). 'options.php');
 
 /* Post meta */
 require_once(plugin_dir_path(__FILE__). 'post-meta.php');
