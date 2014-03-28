@@ -128,9 +128,7 @@ function veuse_staff_render_form() {
 		if ( isset ( $_GET['tab'] ) ) ilc_admin_tabs($_GET['tab']); else ilc_admin_tabs('shortcodes'); 
 		?>
 		<!-- Beginning of the Plugin Options Form -->
-		<form method="post" action="options.php">
-			<?php settings_fields('veuse_staff_plugin_options'); ?>
-			<?php $options = get_option('veuse_staff_options'); ?>
+		
 
 			<!-- Table Structure Containing Form Controls -->
 			<!-- Each Plugin Option Defined on a New Table Row -->
@@ -140,122 +138,32 @@ function veuse_staff_render_form() {
 			else $tab = 'shortcodes';
 			?>
 			
-			<table class="form-table">
+		
 			
 				<?php 
 				    switch ( $tab ){
 					 case 'shortcodes' :
 					 ?>
-				<tr>
-					<th scope="row"><strong><?php _e('Shortcode','veuse-staff');?></strong></th>
-					<td>
-						<code>
-						[veuse_staff teams=" { team-slugs, separated by commas } " columns=" { 2,3 or 4 } " mobile_columns=" { 1 or 2 } " title=" { true or false }" bio=" { true or false } " team-description=" { true or false } " excerpt_limit=" { maximum number of characters } " link=" { true or false} " more_link=" { true or false} "]
-						</code>
-					</td>
-				
-				</tr>
-				
-				<tr>
-					<th scope="row"><strong><?php _e('Parameters','veuse-staff');?></strong></th>
-					<td>
-											
-						<p><strong>Teams</strong><br>
-						Enter the slug of the team you want to display. If you want to display several teams, enter more slugs separated by comma.<br> 
-						Example: <code>team="management, marketing, support"</code> Required. Default is <em>none</em></p>
-						<p></p>
-						
-						<p><strong>Columns</strong><br>
-						Enter how many columns you want in the grid in the team-listing.<br>
-						Example: <code>columns="3"</code> Optional. Default is 3 columns</p>
-						<p></p>
-						
-						<p><strong>Mobile columns</strong><br>
-						Enter how many columns you want in the grid when viewed on small screens (768px width and lower).<br>
-						Example: <code>mobile_columns="3"</code> Optional. Default is 1 column</p>
-						<p></p>
-						
-						<p><strong>Bio</strong><br>
-						Set to true if you want to display the biography in the staff-list<br>
-						Example: <code>bio="true"</code> Optional. Default is false</p>
-						<p></p>
-						
-						<p><strong>Excerpt limit</strong><br>
-						Set to true if you want to display the number of characters displayed for biography in staff-list<br>
-						Example: <code>excerpt_limit="true"</code> Optional. Default is 1000</p>
-						<p></p>
-						
-						<p><strong>Link</strong><br>
-						Set to true if you want the entries to link to a single-post for the staff-member<br>
-						Example: <code>link="false"</code> Optional. Default is true</p>
-						<p></p>
-						
-						<p><strong>More-link</strong><br>
-						Set to true if you want to add a visible text-link in the entries to link to a single-post for the staff-member<br>
-						Example: <code>more_link="true"</code> Optional. Default is false</p>
-						<p></p>
-						
-					</td>
-				
-				</tr>
-				
+				fdsafdasfs				
 				<?php
 			      break;
 			      case 'settings' :
 				  ?>
-				<tr>
-					<th scope="row"><strong><?php _e('Enable plugin stylesheet','veuse-staff');?></strong></th>
-					<td>
-						<input name="veuse_staff_options[css]" type="checkbox" <?php if(isset($options['css'])) echo 'checked="checked"'; ?>/>
-					</td>
-				</tr>
-				
-				<tr>
-					<th scope="row"><strong><?php _e('Portrait settings','veuse-staff');?></strong></th>
-					<td>
-						<select name="veuse_staff_options[portrait_ratio]">
-							<option value="portrait" <?php if(isset($options['portrait_ratio']) && $options['portrait_ratio'] == 'portrait' ) echo 'selected="selected"'; ?>><?php _e('Portrait','veuse-staff');?></option>
-							<option value="landscape" <?php if(isset($options['portrait_ratio']) && $options['portrait_ratio'] == 'landscape' ) echo 'selected="selected"'; ?>><?php _e('Landscape','veuse-staff');?></option>
-							<option value="square" <?php if(isset($options['portrait_ratio']) && $options['portrait_ratio'] == 'square' ) echo 'selected="selected"'; ?>><?php _e('Square','veuse-staff');?></option>
-						</select>
-						<span class="description"><?php _e('Select the aspect ratio of portrait images.','veuse-staff');?></span>
-					</td>
-				</tr>
-				
-								
-				<tr>
-					<td colspan="2">
-						<p class="submit"><input type="submit" class="button-primary" value="<?php _e('Save Changes','veuse-staff') ?>" /></p>
-					</td>
-				</tr>
+				fdsafdasfsa
 				
 				<?php
 			      break;
 			      case 'advanced' :
 				  ?>
 				  
-				  <tr>
-					<th scope="row"><strong><?php _e('Advanced','veuse-staff');?></strong></th>
-					<td>
-						<p><strong>If you want to customize how the staff-member is output on single staff posts, you can do the following:</strong></p>
-						
-						<p>Locate the function <code>veuse_staff_filter_content()</code> in the veuse-staff.php in your plugin folder. Copy this function to your themes functions.php  and give the function a new name, ie. <code>my_theme_filter_staff_content()</code></p>
-						
-						<p>Add this code to your functions.php:</p>
-						
-						<code>remove_filter('the_content', 'veuse_staff_filter_content');</code> and
-						<code>add_filter('the_content', 'my_theme_filter_staff_content');</code>
-						
-						<p>Now you can edit the new function in functions.php to suit your needs</p>
-					</td>
-				</tr>
+				  dafdsafdsafd
 				
 				<?php
 			      break;
 			   } ?>
 
-			</table>
-		</form>
+			
+	
 	</div>
 	<?php
 }

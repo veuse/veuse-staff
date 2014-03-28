@@ -47,6 +47,7 @@ class VeuseStaff {
 		$this->strVeuseStaffPATH = plugin_dir_path(__FILE__) ;
 				
 		add_action('init', array(&$this,'veuse_staff_enqueue_styles'));
+		add_action( 'admin_enqueue_scripts', array(&$this,'veuse_staff_admin_enqueue_scripts' ));
 	
 		add_action('init', array(&$this,'register_staff'));
 		
@@ -57,11 +58,36 @@ class VeuseStaff {
 		 
 		add_filter('manage_staff_posts_columns',  array ( $this,'veuse_staff_columns'));
 		add_action('manage_staff_posts_custom_column', array ( $this,'veuse_staff_custom_columns'), 10, 2 );
-
+		
+			
+		add_action( 'wp_ajax_veuse_staff_update_post_order', array(&$this,'veuse_staff_update_post_order' ));
       
     }
+    
+   
+
+	function veuse_staff_update_post_order($post_id) {
+		
+		global $wpdb;
 	
-	/* Enqueue scripts
+		$post_type    = $_POST['posttype'];
+		$order        = $_POST['order'];
+	
+		foreach( $order as $menu_order => $post_id )
+		{
+			$post_id        = intval( str_ireplace( 'post-', '', $post_id ) );
+			echo $post_id;
+			$menu_order     = intval($menu_order);
+			wp_update_post( array( 'ID' => $post_id, 'menu_order' => $menu_order ) );
+		}
+	
+		die( '1' );
+	}
+    
+
+
+	
+	/* Enqueue styles
 	============================================= */
 	
 	function veuse_staff_enqueue_styles() {
@@ -81,12 +107,26 @@ class VeuseStaff {
 
 	}
 	
+	
+	
+	/* Enqueue scripts */
+
+	function veuse_staff_admin_enqueue_scripts() {
+		wp_enqueue_script( 'jquery-ui-sortable' );
+		wp_enqueue_script( 'veuse-staff-admin-scripts', $this->strVeuseStaffURI . 'assets/js/veuse-staff-admin.js' );
+	}
+	
+	
 	/* Localization
 	============================================= */
 	function veuse_staff_action_init() {
 	    load_plugin_textdomain('veuse-staff', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
 	}
 	
+	
+	
+
+
 	
 	/* Register post-type
 	============================================= */
@@ -115,11 +155,11 @@ class VeuseStaff {
 					'show_ui' => true,
 					'_builtin' => false, // It's a custom post type, not built in
 					'_edit_link' => 'post.php?post=%d',
-					'capability_type' => 'post',
-					'hierarchical' => false,
+					'capability_type' => 'page',
+					'hierarchical' => true,
 					'rewrite' => array("slug" => "staff"), // Permalinks
 					'query_var' => "staff", // This goes to the WP_Query schema
-					'supports' => array('page-attributes'),
+					'supports' => 'permalink',
 					'menu_icon' => 'dashicons-groups',
 					'menu_position' => 30,
 					'publicly_queryable' => true,
@@ -171,9 +211,9 @@ class VeuseStaff {
 				 	
 				 	case 'thumbnail' :
 				 		$portrait = get_post_meta($post_id,'veuse_staff_portrait', true);
-				 		$image_src = wp_get_attachment_image_src($portrait, 'medium');
+				 		$image_src = wp_get_attachment_image_src($portrait, 'thumbnail');
 				 		
-					 	echo '<img src="'.$image_src[0].'" style="max-width:200px; max-height:200px;"/>'; 
+					 	echo '<img src="'.$image_src[0].'"/>'; 
 						break;
 						
 					case 'bio' :
@@ -195,6 +235,11 @@ class VeuseStaff {
 						}
 						
 						break;
+						
+					case 'order' :
+				 	
+						echo '<a class="order-staff" style="padding:12px;cursor:move; float:right;" title="'.__('Change order','veuse-pricetable').'"><img src="'.plugin_dir_url(__FILE__).'assets/images/icon-sortable.png" width="24" height=24" alt="Move"/></a>';						
+						break;
 					
 			
 					
@@ -209,7 +254,8 @@ class VeuseStaff {
 					"title" => __("Staff Member Name","veuse-staff"),
 					"thumbnail" => __("Photo","veuse-staff"),
 					"bio" => __("Short bio","veuse-staff"),
-					"team" => __("Team","veuse-staff")
+					"team" => __("Team","veuse-staff"),
+					"order" => __("Change order","veuse-staff")
 			);
 			return $columns;
 		}
@@ -371,10 +417,13 @@ $staff = new VeuseStaff;
 require_once(plugin_dir_path(__FILE__). 'widget.php');
 
 /* Plugin options */
-//require_once(plugin_dir_path(__FILE__). 'options.php');
+require_once(plugin_dir_path(__FILE__). 'options.php');
 
 /* Post meta */
 require_once(plugin_dir_path(__FILE__). 'post-meta.php');
+
+/* Documentation */
+require_once(plugin_dir_path(__FILE__). 'documentation/documentation.php');
 
 
 /* Template redirect
