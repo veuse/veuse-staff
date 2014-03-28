@@ -15,3 +15,8 @@ WordPress plugin for creating and displaying staff-members on posts and pages.
 Each employee/person can have the following fields: Portrait, Name, Designation, Phone number, Mobile number, Email, Facebook url, Twitter URL, Linkedin URL
 
 
+**Usage**
+
+Each team can be displayed via either a shortcode or via a widget.
+
+
