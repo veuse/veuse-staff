@@ -1,0 +1,1 @@
+22.04.2014 - Uses post-thumbnail for portraits instead of post-meta.

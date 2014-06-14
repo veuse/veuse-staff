@@ -3,7 +3,7 @@
 Plugin Name: Veuse Staff
 Plugin URI: http://veuse.com/veuse-staff
 Description:  Fully localized. Templates included. This is an add-on for the Veuse Pagebuilder plugin.
-Version: 1.1
+Version: 2.0
 Author: Andreas Wilthil
 Author URI: http://veuse.com
 License: GPL3
@@ -113,7 +113,7 @@ class VeuseStaff {
 
 	function veuse_staff_admin_enqueue_scripts() {
 		wp_enqueue_script( 'jquery-ui-sortable' );
-		wp_enqueue_script( 'veuse-staff-admin-scripts', $this->strVeuseStaffURI . 'assets/js/veuse-staff-admin.js' );
+		wp_enqueue_script( 'veuse-staff-admin-scripts', $this->strVeuseStaffURI . 'assets/js/veuse-staff-admin.js', array('jquery'), '', true );
 	}
 	
 	
@@ -149,37 +149,37 @@ class VeuseStaff {
 	    );
 
 		register_post_type('staff',
-					array(
-					'labels' => $labels,
-					'public' => true,
-					'show_ui' => true,
-					'_builtin' => false, // It's a custom post type, not built in
-					'_edit_link' => 'post.php?post=%d',
-					'capability_type' => 'page',
-					'hierarchical' => true,
-					'rewrite' => array("slug" => "staff"), // Permalinks
-					'query_var' => "staff", // This goes to the WP_Query schema
-					'supports' => 'permalink',
-					'menu_icon' => 'dashicons-groups',
-					'menu_position' => 30,
-					'publicly_queryable' => true,
-					'exclude_from_search' => false,
-					'show_in_nav_menus' => false
-					));
+			array(
+			'labels' => $labels,
+			'public' => true,
+			'show_ui' => true,
+			'_builtin' => false, // It's a custom post type, not built in
+			'_edit_link' => 'post.php?post=%d',
+			'capability_type' => 'page',
+			'hierarchical' => true,
+			'rewrite' => array("slug" => "staff"), // Permalinks
+			'query_var' => "staff", // This goes to the WP_Query schema
+			'supports' => array('permalink','editor'),
+			'menu_icon' => 'dashicons-groups',
+			'menu_position' => 30,
+			'publicly_queryable' => true,
+			'exclude_from_search' => false,
+			'show_in_nav_menus' => false
+		));
 
 		$taxlabels = array(
-		        'name' => __( 'Teams', 'veuse-staff' ), // Tip: _x('') is used for localization
-		        'singular_label' => __( 'Team', 'veuse-staff' ),
-		        'add_new' => __( 'Add New Team', 'veuse-staff' ),
-		        'add_new_item' => __( 'Add New Team','veuse-staff' ),
-		        'edit_item' => __( 'Edit Team', 'veuse-staff' ),
-		        'all_items' => __( 'All Teams','veuse-staff' ),
-		        'new_item' => __( 'New Team','veuse-staff' ),
-		        'view_item' => __( 'View Team','veuse-staff' ),
-		        'search_items' => __( 'Search Teams','veuse-staff' ),
-		        'not_found' =>  __( 'No Teams found','veuse-staff' ),
-		        'parent_item_colon' => ''
-		    );
+	        'name' => __( 'Teams', 'veuse-staff' ), // Tip: _x('') is used for localization
+	        'singular_label' => __( 'Team', 'veuse-staff' ),
+	        'add_new' => __( 'Add New Team', 'veuse-staff' ),
+	        'add_new_item' => __( 'Add New Team','veuse-staff' ),
+	        'edit_item' => __( 'Edit Team', 'veuse-staff' ),
+	        'all_items' => __( 'All Teams','veuse-staff' ),
+	        'new_item' => __( 'New Team','veuse-staff' ),
+	        'view_item' => __( 'View Team','veuse-staff' ),
+	        'search_items' => __( 'Search Teams','veuse-staff' ),
+	        'not_found' =>  __( 'No Teams found','veuse-staff' ),
+	        'parent_item_colon' => ''
+	    );
 
 		register_taxonomy("team",
 			array("staff"),
@@ -280,7 +280,8 @@ class VeuseStaff {
 							'more_link'		=> 'false',
 							'url'			=> '',
 							'social_media' 	=> 'true',
-							'contact_info'	=> 'true'
+							'contact_info'	=> 'true',
+							'perpage'		=> '-1'
 		
 		
 				    ), $atts));
@@ -301,7 +302,7 @@ class VeuseStaff {
 					    'post_type' => 'staff',
 					    'post_status' => 'publish',
 					    'orderby'	=> 	'menu_order',
-					    'posts_per_page' => -1,
+					    'posts_per_page' => $perpage,
 					    'order' => 'ASC',
 					    'tax_query' => array(
 								        array(

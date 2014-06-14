@@ -17,8 +17,13 @@ function veuse_staff_meta_box_cb( $post )
 
 	$values = get_post_custom( $post->ID );
 	//$name = isset( $values[$prefix.'_name'] ) ? esc_attr( $values[$prefix.'_name'][0] ) : '';
-	$portrait = isset( $values[$prefix.'_portrait'] ) ?  $values[$prefix.'_portrait'][0]  : '';
-	$image_src = wp_get_attachment_image_src($portrait, 'full');
+	$portrait = get_post_thumbnail_id( $post->ID);
+	$portrait_src = wp_get_attachment_image_src($portrait, 'full');
+	$portrait_2 = isset( $values[$prefix.'_portrait_2'] ) ? esc_attr( $values[$prefix.'_portrait_2'][0] ) : '';
+	$portrait_2_src = wp_get_attachment_image_src($portrait_2, 'full');
+	
+	$firstname = isset( $values[$prefix.'_firstname'] ) ? esc_attr( $values[$prefix.'_firstname'][0] ) : '';
+	$lastname = isset( $values[$prefix.'_lastname'] ) ? esc_attr( $values[$prefix.'_lastname'][0] ) : '';
 	$position = isset( $values[$prefix.'_position'] ) ? esc_attr( $values[$prefix.'_position'][0] ) : '';
 	$email 	  = isset( $values[$prefix.'_email'] ) ? esc_attr( $values[$prefix.'_email'][0] ) : '';
 	$phone	  = isset( $values[$prefix.'_phone'] ) ? esc_attr( $values[$prefix.'_phone'][0] ) : '';
@@ -44,9 +49,25 @@ function veuse_staff_meta_box_cb( $post )
 					
 						<div class="box box-60">
 							
-							<div id="titlediv"><div id="titlewrap">
-							<label for="post_title" id="title-prompt-text"><?php echo empty($post->post_title) ? __('Name of staff member','veuse-staff') :''; ?></label>
-							<input type="text" name="post_title" id="title" value="<?php echo isset($post->post_title) ? $post->post_title :''; ?>" size="60"/></div></div>
+							<div id="titlediv">
+							
+								<div id="titlewrap">
+
+									<label for="post_title" id="title-prompt-text"><?php echo empty($post->post_title) ? __('Name of staff member','veuse-staff') :''; ?></label>
+																
+									<input type="text" name="post_title" id="title" value="<?php echo isset($post->post_title) ? $post->post_title :''; ?>" size="60"/>
+									
+								
+									<p><label><?php _e('First name','veuse-staff'); ?></label> 
+									<input type="text" name="<?php echo $prefix;?>_firstname" id="firstname" value="<?php echo $firstname; ?>" size="40"/></p>
+									
+									<p><label><?php _e('Last name','veuse-staff'); ?></label> 
+									<input type="text" name="<?php echo $prefix;?>_lastname" id="lastname" value="<?php echo $lastname; ?>" size="40"/></p>
+								
+								</div>
+							</div>	
+							
+							
 							<h4 id="title-prompt-text"><?php _e('Designation','veuse-staff');?></h4>
 							<input type="text" name="<?php echo $prefix;?>_position" id="<?php echo $prefix;?>_position" value="<?php echo $position; ?>" size="30"/>
 							
@@ -60,9 +81,12 @@ function veuse_staff_meta_box_cb( $post )
 							<div id="portrait-container">
 								
 								<?php 
-								if(!empty($image_src)){
+								
+								if(!empty($portrait_src)){
+								
+									echo get_the_post_thumbnail( $post->ID, 'medium' );
 									
-									echo '<img src="'.$image_src[0] .'">';
+									//echo '<img src="'.$portrait_src[0] .'">';
 									
 								}
 								?>
@@ -71,11 +95,30 @@ function veuse_staff_meta_box_cb( $post )
 							<input type="hidden" name="<?php echo $prefix;?>_portrait" id="portrait" value="<?php echo $portrait;?>"/>
 							<input type="button" name="staff-portrait" id="veuse-staff-image-upload" class="button button-primary" value="<?php _e('Add portrait','veuse-staff');?>"  style="<?php echo !empty($portrait) ? 'display:none;' : '';?>"/>
 							<input type="button" name="" id="veuse-staff-image-remove" class="button button-primary" value="<?php _e('Remove portrait','veuse-staff');?>" style="<?php echo empty($portrait) ? 'display:none;' : '';?>"/>
+							
+							
+							<div id="portrait-container-2">
+								
+								<?php 
+								
+								if(!empty($portrait_2_src)){
+								
+									echo '<img src="'.$portrait_2_src[0] .'">';
+									
+								}
+								?>
+								
+							</div>
+							<input type="hidden" name="<?php echo $prefix;?>_portrait_2" id="portrait-2" value="<?php echo $portrait_2;?>"/>
+							<input type="button" name="staff-portrait-2" id="veuse-staff-image-upload-2" class="button button-primary" value="<?php _e('Add portrait','veuse-staff');?>"  style="<?php echo !empty($portrait_2) ? 'display:none;' : '';?>"/>
+							<input type="button" name="" id="veuse-staff-image-remove-2" class="button button-primary" value="<?php _e('Remove portrait','veuse-staff');?>" style="<?php echo empty($portrait_2) ? 'display:none;' : '';?>"/>
 						</div>
 						
 						
 					</td>
 				</tr>
+				
+			
 				
 				<tr>
 					<td colspan="2"><h2><?php _e('Contact Info','veuse-staff');?></h2></td>
@@ -157,19 +200,25 @@ function veuse_staff_meta_box_save( $post_id ){
 	if( !current_user_can( 'edit_posts' ) ) return;
 	
 	
-
-	// now we can actually save the data
-	/*
+	if( isset( $_POST[$prefix.'_portrait'] ) ) {
+		//update_post_meta( $post_id, $prefix.'_portrait',  esc_attr( $_POST[$prefix.'_portrait'] ));
+		set_post_thumbnail( $post_id, esc_attr( $_POST[$prefix.'_portrait'] ) );
 	
-		$allowed = array(
-		'a' => array( // on allow a tags
-		'href' => array() // and those anchors can only have href attribute
-		)
-	);
-	*/
+	} else {
+		delete_post_thumbnail( $post_id );
+		
+	}
 	
-	if( isset( $_POST[$prefix.'_portrait'] ) )
-		update_post_meta( $post_id, $prefix.'_portrait',  esc_attr( $_POST[$prefix.'_portrait'] ));
+	if( isset( $_POST[$prefix.'_portrait_2'] ) ) {
+		update_post_meta( $post_id, $prefix.'_portrait_2',  esc_attr( $_POST[$prefix.'_portrait_2'] ));
+	
+	} 
+	
+	if( isset( $_POST[$prefix.'_firstname'] ) )
+		update_post_meta( $post_id, $prefix.'_firstname',  esc_attr( $_POST[$prefix.'_firstname'] ));
+		
+	if( isset( $_POST[$prefix.'_lastname'] ) )
+		update_post_meta( $post_id, $prefix.'_lastname',  esc_attr( $_POST[$prefix.'_lastname'] ));
 	
 	if( isset( $_POST[$prefix.'_position'] ) )
 		update_post_meta( $post_id, $prefix.'_position',  esc_attr( $_POST[$prefix.'_position'] ));

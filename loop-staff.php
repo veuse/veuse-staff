@@ -73,7 +73,7 @@ foreach( $staff_query as $employee ) :	setup_postdata($employee);
 	
 	/* Post meta */
 	$position = get_post_meta($employee->ID, 'veuse_staff_position', true);
-	$portrait = get_post_meta($employee->ID, 'veuse_staff_portrait', true);
+	$portrait = wp_get_attachment_url( get_post_thumbnail_id());
 	$image_src = wp_get_attachment_image_src($portrait, 'full');
 	$phone 	  = get_post_meta($employee->ID, 'veuse_staff_phone', true);
 	$mobile   = get_post_meta($employee->ID, 'veuse_staff_mobile', true);
@@ -86,9 +86,9 @@ foreach( $staff_query as $employee ) :	setup_postdata($employee);
 	
 	<li <?php post_class();?>>
 		<article>
-			<?php if(isset($image_src[0]) && $image == true):?>
+			<?php if(isset($portrait) && $image == true):?>
 			<div class="veuse-staff-entry-thumbnail">
-					<?php echo veuse_retina_interchange_image( $image_src[0], $imagesize['width'], $imagesize['height'], true);	?>
+					<?php echo veuse_retina_interchange_image( $portrait[0], $imagesize['width'], $imagesize['height'], true);	?>
 			</div>
 			<?php endif;?>
 

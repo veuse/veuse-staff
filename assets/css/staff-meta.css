@@ -11,16 +11,21 @@
 .box-40 { width:234px; float: right;}
 
 
-#portrait-container { position: relative; height:194px; width: 194px; background: #fff url(../images/icon-portrait.png) no-repeat center center; border:1px solid #d4d4d4; margin:0 0 0 0px; padding:20px; text-align: center; }
-#portrait-container img { display: inline; max-width: 194px; max-height: 194px;}
+#portrait-container,
+#portrait-container-2 { position: relative;  width: 218px; min-height: 150px; background: #fff url(../images/icon-portrait.png) no-repeat center center; border:1px solid #d4d4d4; margin:0 0 0 0px; padding:2px; text-align: center; }
+#portrait-container img,
+#portrait-container-2 img { display: block; width: 100%; height: auto; }
 
-#portrait-uploader .button {margin: 10px 0 0 0px;}
+#portrait-uploader .button,
+#portrait-uploader-2 .button {margin: 10px 0 0 0px;}
 
 @media only screen and (max-width:1023px){
 	
 	.box { width:100%;}
-	#portrait-container  { margin-left:0;}
-	#portrait-uploader .button {margin-left:0;}
+	#portrait-container,
+	#portrait-container-2  { margin-left:0;}
+	#portrait-uploader .button,
+	#portrait-uploader-2 .button {margin-left:0;}
 }
 
 .menu-icon-staff img { width:16px; height:16px;}

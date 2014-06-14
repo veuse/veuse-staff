@@ -1,10 +1,10 @@
 jQuery(function($) {
 
-	$('.wp-list-table tbody').sortable({
+	$('.post-type-staff .wp-list-table > tbody').sortable({
 		axis: 'y',
 		handle: '.order-staff',
 		placeholder: 'ui-state-highlight',
-		forcePlaceholderSize: true,
+		forcePlaceholderSize: false,
 		update: function(event, ui) {
 			var theOrder = $(this).sortable('toArray');
 
@@ -14,7 +14,6 @@ jQuery(function($) {
 				order: theOrder
 			};
 			
-			//alert(data.order);
 
 			$.post(ajaxurl, data);
 		}

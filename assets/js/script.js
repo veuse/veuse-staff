@@ -43,4 +43,47 @@ jQuery(document).ready(function($){
 		
 	});
 	
+	$('#veuse-staff-image-upload-2').click(function(e) {
+ 	
+ 		e.preventDefault();
+		
+		frame = wp.media({
+		 	title : 'Select portrait',
+		 	frame: 'post',
+		 	multiple : false, // set to false if you want only one image
+		 	library : { type : 'image'},
+		 	button : { text : 'Insert portrait' },
+		});
+		
+		frame.on('close',function(data) {
+		 	var imageArray = [];
+		 	images = frame.state().get('selection');
+		 	images.each(function(image) {
+				imageArray.push(image.attributes.url);
+				imageID = image.attributes.id; // want other attributes? Check the available ones with console.log(image.attributes);
+				$('#veuse-staff-image-upload-2').hide();
+				$('#veuse-staff-image-remove-2').show();
+			 });
+ 
+			 jQuery('#portrait-2').val(imageID); // Adds all image URL's comma seperated to a text input
+		 
+			 jQuery('#portrait-container-2').append('<img src="'+ imageArray.join(",") + '"/>');
+		
+		});
+		
+		frame.open();
+
+	});
+	
+	$(document).on('click','#veuse-staff-image-remove-2', function(e) {
+		
+		e.preventDefault();
+		
+		$('#veuse-staff-image-remove-2').hide();
+		$('#veuse-staff-image-upload-2').show();
+		$('#portrait-container-2 img').remove();
+		$('#portrait-2').val('');
+		
+	});
+	
 });
