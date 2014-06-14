@@ -1,4 +1,4 @@
-Staff-members
+Veuse Staff
 =============
 
 WordPress plugin for creating and displaying staff-members on posts and pages.
