@@ -88,7 +88,9 @@ foreach( $staff_query as $employee ) :	setup_postdata($employee);
 		<article>
 			<?php if(isset($portrait) && $image == true):?>
 			<div class="veuse-staff-entry-thumbnail">
-					<?php echo veuse_retina_interchange_image( $portrait[0], $imagesize['width'], $imagesize['height'], true);	?>
+					<?php if($link == 'true'){?>	<a href="<?php the_permalink();?>"> <?php } ?>
+					<?php echo veuse_retina_interchange_image( $portrait, $imagesize['width'], $imagesize['height'], true);	?>
+					<?php if($link == 'true'){?>	</a> <?php } ?>
 			</div>
 			<?php endif;?>
 
@@ -117,12 +119,12 @@ foreach( $staff_query as $employee ) :	setup_postdata($employee);
 				</p>
 	
 
-				<?php if(!empty($employee->post_content) && $more_link == 'true'):?><a href="<?php echo get_permalink( $employee->ID );?>" class="button primary tiny centered"><?php _e('Get to know','veuse-staff');?> <?php echo $name;?></a><?php endif;?>
+				<?php if(!empty($employee->post_content) && $link == 'true'):?><a href="<?php echo get_permalink( $employee->ID );?>" class="button primary tiny centered"><?php _e('Get to know','veuse-staff');?> <?php echo $name;?></a><?php endif;?>
 
 			</div>
 		</article>
 	</li>
-	<?php $i++; if($i % $columns == 0):?><br class="clear break"><?php endif;?>
+	
 <?php 
 	endforeach;
 	wp_reset_query();

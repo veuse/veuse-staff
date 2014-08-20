@@ -341,8 +341,7 @@ class VeuseStaff {
 					if($title == 'yes')
 					$content .= '<h3>' . $termname->name . '</h3>';
 			
-					
-					
+				
 					ob_start();
 					include($this->veuse_staff_locate_part('loop-staff','template-parts'));
 					$content.= ob_get_contents();
@@ -416,6 +415,9 @@ $staff = new VeuseStaff;
 
 /* Widget */
 require_once(plugin_dir_path(__FILE__). 'widget.php');
+
+/* Visual composer compat */
+require_once(plugin_dir_path(__FILE__). 'compat-visualcomposer.php');
 
 /* Plugin options */
 require_once(plugin_dir_path(__FILE__). 'options.php');
